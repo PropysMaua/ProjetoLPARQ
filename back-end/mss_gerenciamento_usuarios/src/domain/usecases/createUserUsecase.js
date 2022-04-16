@@ -22,7 +22,7 @@ class CreateUserUsecase {
       return newUser
     }
     catch (error) {
-      return "erro"
+      throw "Error creating user"
     }
   }
 }
