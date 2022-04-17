@@ -13,15 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
       - name: Go to mss directory
         run: cd back-end/mss_gerenciamento_users
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.1.1
-        
       - name: install dependencies
         run: npm install
-        
       - name: run tests
         run: npm run test
