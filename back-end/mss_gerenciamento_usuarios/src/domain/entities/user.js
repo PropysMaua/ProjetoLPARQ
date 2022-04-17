@@ -1,5 +1,7 @@
 
+
 class User {
+    id
     name
     nationality
     birthDate
@@ -16,6 +18,7 @@ class User {
 
     toJson() {
         return {
+            id: this.id,
             name: this.name,
             nationality: this.nationality,
             birthDate: this.birthDate,

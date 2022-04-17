@@ -32,6 +32,7 @@ describe('createUserUsecase', () => {
         const createUserUsecase = new CreateUserUsecase(repo)
         const createdUser = await createUserUsecase.execute(userMock)
         expect(createdUser.username).toBe(userMock.username)
+        expect(createdUser).toBe(userMock)
 
 
         // expect(async () => {await createUserUsecase.execute(userMock)}).toThrow(Error("User already exists"))

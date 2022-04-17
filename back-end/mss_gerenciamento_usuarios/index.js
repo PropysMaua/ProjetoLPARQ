@@ -1,6 +1,7 @@
 const express = require('express')
 const {UserRepositoryMock} = require("./src/infra/userRepositoryMock");
 const {CreateUserController} = require("./src/adapters/controllers/createUserController");
+const {HttpRequest} = require("./src/adapters/helpers/httpHelpers");
 
 const app = express()
 app.use(express.json())
@@ -12,7 +13,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/user', async (req, res) => {
-    const response = await createUserController.execute(req)
+    const request = new HttpRequest(req.body)
+    const response = await createUserController.execute(request)
     res.status(response.statusCode).json(response.body)
 })
 
