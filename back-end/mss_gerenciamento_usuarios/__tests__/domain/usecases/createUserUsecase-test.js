@@ -13,18 +13,20 @@ describe('createUserUsecase', () => {
 
 
         let userMock = new User(
-            "Bruno Vilardi",
-            "Brazilian",
-            "15/01/2001",
-            "M",
             {
-                city: "São Paulo",
-                country: "Brazil"
-            },
-            "bruno@bruno.com",
-            "+5511912345678",
-            "brvila",
-            "Teste123!"
+                name: "Bruno Vilardi",
+                nationality: "Brazilian",
+                birthDate: "15/01/2001",
+                gender: "M",
+                currentLocation: {
+                    city: "São Paulo",
+                    country: "Brazil"
+                },
+                email: "bruno@bruno.com",
+                phoneNumber: "+5511912345678",
+                username: "brvila",
+                password: "Teste123!"
+            }
         )
 
         const createUserUsecase = new CreateUserUsecase(repo)
@@ -37,18 +39,20 @@ describe('createUserUsecase', () => {
     test('the fetch fails with an error', async () => {
         expect.assertions(1);
         let userMock = new User(
-            "Bruno Vilardi",
-            "Brazilian",
-            "15/01/2001",
-            "M",
             {
-                city: "São Paulo",
-                country: "Brazil"
-            },
-            "bruno@bruno.com",
-            "+5511912345678",
-            "brvila",
-            "Teste123!"
+                name: "Bruno Vilardi",
+                nationality: "Brazilian",
+                birthDate: "15/01/2001",
+                gender: "M",
+                currentLocation: {
+                    city: "São Paulo",
+                    country: "Brazil"
+                },
+                email: "bruno@bruno.com",
+                phoneNumber: "+5511912345678",
+                username: "brvila",
+                password: "Teste123!"
+            }
         )
         const repo = new UserRepositoryMock()
         const createUserUsecase = new CreateUserUsecase(repo)

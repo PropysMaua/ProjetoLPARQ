@@ -2,24 +2,6 @@
 const {Refugee} = require("../../../src/domain/entities/user");
 
 
-
-user = new Refugee(
-    "Bruno Vilardi",
-    "Brazilian",
-    "15/01/2001",
-    "M",
-    {
-        city: "São Paulo",
-        country: "Brazil"
-    },
-    "bruno@bruno.com",
-    "+5511912345678",
-    "brvila",
-    "Teste123!",
-    10,
-    true
-)
-
 jsonUser = {
     name: "Bruno Vilardi",
     nationality: "Brazilian",
@@ -36,6 +18,9 @@ jsonUser = {
     numberTogether: 10,
     lookingHost: true
 }
+
+user = new Refugee(jsonUser)
+
 
 
 test("User constructor", () => {

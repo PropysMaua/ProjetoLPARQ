@@ -10,17 +10,8 @@ class User {
     username
     password
 
-    constructor(name, nationality, birthDate, gender, currentLocation, email, phoneNumber, username, password) {
-
-        this.name = name
-        this.nationality = nationality
-        this.birthDate = birthDate
-        this.gender = gender
-        this.currentLocation = currentLocation
-        this.email = email
-        this.phoneNumber = phoneNumber
-        this.username = username
-        this.password = password
+    constructor(obj) {
+        Object.assign(this, obj)
     }
 
     toJson() {
@@ -42,10 +33,10 @@ class User {
 class Refugee extends User{
     numberTogether
     lookingHost
-    constructor(name, nationality, birthDate, gender, currentLocation, email, phoneNumber, username, password, numberTogether, lookingHost) {
-        super(name, nationality, birthDate, gender, currentLocation, email, phoneNumber, username, password)
-        this.numberTogether = numberTogether
-        this.lookingHost = lookingHost
+    constructor(obj) {
+        super(obj)
+        this.numberTogether = obj.numberTogether
+        this.lookingHost = obj.lookingHost
     }
 }
 
