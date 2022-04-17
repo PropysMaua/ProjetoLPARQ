@@ -14,7 +14,11 @@ class UserRepositoryMock {
   }
 
   async findByField(field, value) {
-    return this.users.find(user => user[field] === value)
+    if (this.users.find(user => user[field] === value)) {
+      return true
+    } else {
+      return false
+    }
   }
 
 

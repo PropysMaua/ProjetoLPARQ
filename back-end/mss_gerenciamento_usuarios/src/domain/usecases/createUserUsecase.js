@@ -11,10 +11,10 @@ class CreateUserUsecase {
     try {
       let duplicityFields = ['email', 'username', 'phoneNumber']
       let userExists = false
-      duplicityFields.forEach(async field => {
+      for (let field of duplicityFields) {
         userExists = await this._userRepository.findByField(field, user[field])
-        if (userExists) throw new Error(`${field} already exists`)
-      })
+        if (userExists) throw new Error(`${field} already exists`, null)
+      }
 
 
       const newUser = await this._userRepository.createUser(user)
@@ -22,7 +22,7 @@ class CreateUserUsecase {
       return newUser
     }
     catch (error) {
-      throw "Error creating user"
+      throw "User already exists"
     }
   }
 }
