@@ -50,6 +50,12 @@ class UserRepositoryMock {
     return this.users[this.users.length - 1]
   }
 
+  async deleteUser(id){
+    const index = this.users.findIndex(u => u.id === id)
+    this.users.splice(index, 1)
+    return 
+  }
+
   async getUserByField(field, value) {
     if (this.users.find(user => user[field] === value) === undefined) {
       return false

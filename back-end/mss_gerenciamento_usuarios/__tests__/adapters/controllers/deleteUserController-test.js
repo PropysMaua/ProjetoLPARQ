@@ -1,17 +1,17 @@
 const {UserRepositoryMock} = require("../../../src/infra/userRepositoryMock");
 const {HttpRequest} = require("../../../src/adapters/helpers/httpHelpers");
-const {GetUserController} = require("../../../src/adapters/controllers/getUserController");
+const {DeleteUserController} = require("../../../src/adapters/controllers/deleteUserController");
 
 
-describe(`getUserController`, () => {
-    it(`should get a user`, async () => {
+describe(`deleteUserController`, () => {
+    it(`should delete a user`, async () => {
         const repo = new UserRepositoryMock()
         let userMock = repo.users[0]
 
-        const getUserController = new GetUserController(repo)
+        const deleteUserController = new DeleteUserController(repo)
 
         const httpRequest = new HttpRequest({},{id:userMock.id},{})
-        const httpResponse = await getUserController.execute(httpRequest)
+        const httpResponse = await deleteUserController.execute(httpRequest)
 
         expect(httpResponse.statusCode).toBe(200)
         expect(httpResponse.body).toBe(userMock)
