@@ -16,10 +16,10 @@ A proposta do projeto é desenvolver um app para ajudar refugiados encontrar cas
 - Versionamento de código: [GitHub](https://github.com/)
 - Linguagem de Programação: [JavaScript](https://www.javascript.com/)
 - Engine do back end: [Node.js](https://nodejs.org/)
-- Framework para desenvolvimento das APIs: [Express](https://expressjs.com/)
+- Framework para desenvolvimento das APIs: [Express.js](https://expressjs.com/)
 - Gerenciamento e documentação das APIs: [Postman](https://www.postman.com/)
 - Testes de integração: [Jest](https://jestjs.io/) + [Github Actions](https://github.com/features/actions)
-- Desenvolvimento do UI: [React](https://reactjs.org/)
+- Desenvolvimento do UI: [React.js](https://reactjs.org/)
 
 ## Arquitetura
 
