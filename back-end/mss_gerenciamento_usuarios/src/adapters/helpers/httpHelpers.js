@@ -2,9 +2,11 @@
 
 class HttpRequest {
     body={}
+    queryParameters={}
     headers={}
-    constructor(body, headers){
+    constructor(body, queryParameters, headers){
         this.body = body
+        this.queryParameters = queryParameters
         this.headers = headers
     }
 }
