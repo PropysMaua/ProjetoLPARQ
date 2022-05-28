@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lparq-front';
+  users = new Array()
+  onClientLogin(user: any) {
+    this.users.push(user)
+    console.log(this.users)
+  }
 }
