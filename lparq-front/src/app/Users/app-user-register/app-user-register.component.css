@@ -1,0 +1,16 @@
+mat-card{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+mat-form-field, input{
+    width: 100%;
+}
+
+td{
+    padding-right: 20px;
+}

@@ -1,0 +1,102 @@
+<mat-card>
+  <mat-card-title>Preencha os campos a seguir com suas informações</mat-card-title>
+
+  <p>Dados Pessoais</p>
+
+  <form (submit)="onAddUser(userForm)" #userForm="ngForm">
+    <table>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Digite seu nome</mat-label>
+          <input matInput type="text" ngModel name="nome" required #nomeInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Informe sua data de nascimento</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Informe seu Gênero</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{gender.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Informe sua Nacionalidade</mat-label>
+          <input matInput type="text" ngModel name="email" required #emailInput>
+        </mat-form-field>
+      </td>
+    </table>
+
+    <p>Local onde reside atualmente</p>
+    <table>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Cidade</mat-label>
+          <input matInput type="text" ngModel name="cidade" required #cidadeInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>País</mat-label>
+          <input matInput type="text" ngModel name="pais" required #paisInput>
+        </mat-form-field>
+      </td>
+    </table>
+
+    <p>Informações de contato</p>
+    <table>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="email" placeholder="Ex: pat@exemplo.com">
+          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Por favor insira um email válido
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email é <strong>necessário</strong>
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Número</mat-label>
+          <input matInput placeholder="Ex: 07398-8366" type="text" ngModel name="numero" required #numeroInput>
+        </mat-form-field>
+      </td>
+    </table>
+
+    <p>Dados da conta</p>
+    <table>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Nome de Usuário</mat-label>
+          <input matInput type="text" ngModel name="cidade" required #cidadeInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" required #senhaInput>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </table>
+
+    <mat-checkbox>Li e Concordo com os <strong>Termos de Serviço e a Política de Privacidade.</strong></mat-checkbox>
+    <p></p>
+    <button mat-raised-button color="primary">Cadastrar-se</button>
+  </form>
+</mat-card>
