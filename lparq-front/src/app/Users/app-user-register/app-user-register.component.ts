@@ -26,8 +26,6 @@ export class AppUserRegisterComponent implements OnInit {
   startDate = new Date(1960, 0, 1)
   email = new FormControl('', [Validators.required, Validators.email])
   hide = true
-
-  @Input()
   users: User[] = []
 
   constructor(private userService: UserService) { }
@@ -43,6 +41,9 @@ export class AppUserRegisterComponent implements OnInit {
       new Gender('F', 'Feminino'),
       new Gender('ND', 'Não Declarar'),
     ]
+
+    console.log("Users: ")
+    this.getUsers().forEach(value => console.log(value))
   }
 
 
@@ -54,7 +55,16 @@ export class AppUserRegisterComponent implements OnInit {
     }
     // console.log(this.userService.getUsers())
     return true
+  }
 
+  getUsers(){
+    let u: any[] = []
+    this.userService.getUsers().forEach(
+      value => {
+        u.push(value)
+      }
+    )
+    return u
   }
 
   getErrorMessage(){

@@ -20,15 +20,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
-import { UserService } from './Users/user.service';
+import {UserService} from './Users/user.service';
 import {HttpClientModule} from "@angular/common/http";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AppUserRegisterComponent,
-    CabecalhoComponent,
+    CabecalhoComponent
   ],
   imports: [
     BrowserModule,
