@@ -21,6 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UserService } from './Users/user.service';
+import { AppUserListComponent } from './Users/app-user-list/app-user-list.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UserService } from './Users/user.service';
     AppComponent,
     AppUserRegisterComponent,
     CabecalhoComponent,
+    AppUserListComponent,
   ],
   imports: [
     BrowserModule,

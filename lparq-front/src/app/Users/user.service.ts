@@ -3,7 +3,7 @@ import { User } from "./user.model";
 
 
 export class UserService{
-    private Users:User[] = []
+    Users:User[] = []
 
     getUsers(): User[]{
         return [...this.Users]
