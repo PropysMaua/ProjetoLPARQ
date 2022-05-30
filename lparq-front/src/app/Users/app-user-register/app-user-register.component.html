@@ -23,12 +23,12 @@
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Informe seu Gênero</mat-label>
-          <input matInput ngModel name="gender" type="text" required #genderInput>
-          <!-- <mat-select>
-            <mat-option ngModel name="gender" *ngFor="let gender of genders" [value]="gender.value">
-              {{gender.viewValue}}
-            </mat-option>
-          </mat-select> -->
+          <input list="genders-list" matInput ngModel name="gender" type="text" required #genderInput>
+          <datalist id="genders-list">
+            <option ngModel name="gender" *ngFor="let g of genders" [value]="g.value">
+              {{ g.viewValue }}
+            <option>
+          </datalist>
         </mat-form-field>
       </td>
       <td>

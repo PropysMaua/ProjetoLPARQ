@@ -9,12 +9,11 @@ export class UserService{
         return [...this.Users]
     }
 
-    addUser(id: string, name: string, nationality: string, birthDate: string,
-        gender: string, city: string, country: string, email: string, phoneNumber: string,
-        username: string, password: string): void{
-        const user: User = {
-            id, name, nationality, birthDate, gender, city, country, email, phoneNumber, username, password
-        }
+    addUser(user: User): void{
+      console.log("Entrou: " +  user)
+        // const user: User = {
+        //     id, name, nationality, birthDate, gender, city, country, email, phoneNumber, username, password
+        // }
         this.Users.push(user)
     }
 

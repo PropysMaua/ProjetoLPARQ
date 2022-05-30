@@ -11,3 +11,9 @@ export interface User{
         username: string
         password: string
 }
+
+export class User implements User{
+  constructor(obj: User){
+    Object.assign(this, obj)
+  }
+}
