@@ -33,7 +33,7 @@ export class AppUserRegisterComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers()
+    // this.users = this.userService.getUsers()
     this.models = {
         gender: Gender
       }
@@ -46,13 +46,13 @@ export class AppUserRegisterComponent implements OnInit {
   }
 
 
-  onAddUser(form: NgForm){
-    console.log(form.value)
+  async onAddUser(form: NgForm){
+    console.log("onAddUser: " + form.value)
     if(form.valid) {
       let u: User = {...form.value}
-      this.userService.addUser(u)
+      await this.userService.addUser(u)
     }
-    console.log(this.userService.getUsers())
+    // console.log(this.userService.getUsers())
     return true
 
   }

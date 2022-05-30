@@ -14,13 +14,14 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
-// Imports from Angular Material 
+// Imports from Angular Material
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UserService } from './Users/user.service';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { UserService } from './Users/user.service';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},

@@ -1,20 +1,30 @@
 import { User } from "./user.model";
+import {UserRepoService} from "../repo/user-repo.service";
+import {Injectable} from "@angular/core";
 
 
-
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService{
-    private Users:User[] = []
+  repo: UserRepoService
 
-    getUsers(): User[]{
-        return [...this.Users]
+
+    constructor(repo: UserRepoService) {
+      this.repo = repo
     }
 
-    addUser(user: User): void{
-      console.log("Entrou: " +  user)
+    // getUsers(): User[]{
+    //     return [...this.Users]
+    // }
+
+    async addUser(user: User) {
+      console.log("Criar user: " +  user)
         // const user: User = {
         //     id, name, nationality, birthDate, gender, city, country, email, phoneNumber, username, password
         // }
-        this.Users.push(user)
+      let resp = await this.repo.createUser(user)
+      console.log("resp: " + JSON.stringify(resp))
     }
 
 
