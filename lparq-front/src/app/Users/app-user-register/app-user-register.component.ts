@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
+import { User } from '../user.model';
 import {FormControl, Validators} from '@angular/forms';
+
 
 interface Gender{
   value: string,
@@ -14,6 +16,7 @@ interface Gender{
   styleUrls: ['./app-user-register.component.css']
 })
 
+
 export class AppUserRegisterComponent implements OnInit {
 
   genders: Gender[]=[
@@ -25,10 +28,15 @@ export class AppUserRegisterComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email])
   hide = true
 
+  @Input()
+  users: User[] = []
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.users = this.userService.getUsers()
   }
+
 
   onAddUser(form: NgForm){
     if(form.valid) return
@@ -37,6 +45,7 @@ export class AppUserRegisterComponent implements OnInit {
       form.value.gender, form.value.city, form.value.country, form.value.email, 
       form.value.phoneNumber, form.value.username, form.value.password 
     )
+    console.log(this.users)
   }
 
   getErrorMessage(){

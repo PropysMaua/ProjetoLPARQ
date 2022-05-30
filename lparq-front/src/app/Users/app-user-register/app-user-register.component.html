@@ -3,18 +3,18 @@
 
   <p>Dados Pessoais</p>
 
-  <form (submit)="onAddUser(userForm)" #userForm="ngForm">
+  <form (ngSubmit)="onAddUser(userForm)" #userForm="ngForm">
     <table>
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Digite seu nome</mat-label>
-          <input matInput type="text" ngModel name="nome" required #nomeInput>
+          <input matInput type="text" ngModel name="name" required #nameInput>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Informe sua data de nascimento</mat-label>
-          <input matInput [matDatepicker]="picker">
+          <input matInput ngModel name ="birthDate" [matDatepicker]="picker">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
@@ -23,17 +23,18 @@
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Informe seu Gênero</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          <input matInput ngModel name="gender" type="text" required #genderInput>
+          <!-- <mat-select>
+            <mat-option ngModel name="gender" *ngFor="let gender of genders" [value]="gender.value">
               {{gender.viewValue}}
             </mat-option>
-          </mat-select>
+          </mat-select> -->
         </mat-form-field>
       </td>
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Informe sua Nacionalidade</mat-label>
-          <input matInput type="text" ngModel name="email" required #emailInput>
+          <input matInput type="text" ngModel name="nationality" required #nationalityInput>
         </mat-form-field>
       </td>
     </table>
@@ -43,13 +44,13 @@
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Cidade</mat-label>
-          <input matInput type="text" ngModel name="cidade" required #cidadeInput>
+          <input matInput type="text" ngModel name="city" required #cityInput>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field appearance="fill">
           <mat-label>País</mat-label>
-          <input matInput type="text" ngModel name="pais" required #paisInput>
+          <input matInput type="text" ngModel name="country" required #countryInput>
         </mat-form-field>
       </td>
     </table>
@@ -59,7 +60,7 @@
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="email" placeholder="Ex: pat@exemplo.com">
+          <input type="email" matInput ngModel name="email" [formControl]="email" placeholder="Ex: pat@exemplo.com">
           <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
             Por favor insira um email válido
           </mat-error>
@@ -71,7 +72,7 @@
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Número</mat-label>
-          <input matInput placeholder="Ex: 07398-8366" type="text" ngModel name="numero" required #numeroInput>
+          <input matInput placeholder="Ex: 07398-8366" type="text" ngModel name="phoneNumber" required #phoneNumberInput>
         </mat-form-field>
       </td>
     </table>
@@ -81,13 +82,13 @@
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Nome de Usuário</mat-label>
-          <input matInput type="text" ngModel name="cidade" required #cidadeInput>
+          <input matInput type="text" ngModel name="username" required #usernameInput>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field appearance="fill">
           <mat-label>Senha</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" required #senhaInput>
+          <input matInput name="password" ngModel [type]="hide ? 'password' : 'text'" required #senhaInput>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
@@ -95,8 +96,8 @@
       </td>
     </table>
 
-    <mat-checkbox>Li e Concordo com os <strong>Termos de Serviço e a Política de Privacidade.</strong></mat-checkbox>
+    <mat-checkbox color="warn">Li e Concordo com os <strong>Termos de Serviço e a Política de Privacidade.</strong></mat-checkbox>
     <p></p>
-    <button mat-raised-button color="primary">Cadastrar-se</button>
+    <button mat-raised-button color="warn" type="submit">Cadastrar-se</button>
   </form>
 </mat-card>
