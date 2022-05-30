@@ -39,13 +39,13 @@ export class AppUserRegisterComponent implements OnInit {
 
 
   onAddUser(form: NgForm){
-    if(form.valid) return
+    if(form.valid) 
     this.userService.addUser(
       form.value.id, form.value.name, form.value.nationality, form.value.birthDate, 
       form.value.gender, form.value.city, form.value.country, form.value.email, 
       form.value.phoneNumber, form.value.username, form.value.password 
     )
-    console.log(this.users)
+    return console.log(this.userService.getUsers())
   }
 
   getErrorMessage(){
