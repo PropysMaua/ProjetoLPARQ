@@ -11,6 +11,7 @@ export class UserService {
   repo: UserRepoService
   loading: boolean = false
 
+export class UserService{
 
   constructor(repo: UserRepoService) {
     this.repo = repo
@@ -19,7 +20,6 @@ export class UserService {
   getUsers(): Observable<User[]>{
     return this.repo.getUsers()
   }
-
 
   addUser(user: User) {
     console.log("Criar user: " + user)
