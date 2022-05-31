@@ -1,26 +1,54 @@
 import { User } from "./user.model";
+import {UserRepoService} from "../repo/user-repo.service";
+import {Component, Injectable} from "@angular/core";
+import {Observable} from "rxjs";
 
 
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  repo: UserRepoService
+  loading: boolean = false
 
 export class UserService{
-    Users:User[] = []
 
-    getUsers(): User[]{
-        return [...this.Users]
-    }
+  constructor(repo: UserRepoService) {
+    this.repo = repo
+  }
 
-    addUser(id: string, name: string, nationality: string, birthDate: string,
-        gender: string, city: string, country: string, email: string, phoneNumber: string,
-        username: string, password: string): void{
-        const user: User = {
-            id, name, nationality, birthDate, gender, city, country, email, phoneNumber, username, password
-        }
-        this.Users.push(user)
-    }
-    deleteUser(id: string): void{
-        this.Users.forEach((value, index)=>{
-            if (value.id==id) this.Users.splice(index,1)
+  getUsers(): Observable<User[]>{
+    return this.repo.getUsers()
+  }
+
+  addUser(user: User) {
+    console.log("Criar user: " + user)
+    // const user: User = {
+    //     id, name, nationality, birthDate, gender, city, country, email, phoneNumber, username, password
+    // }
+    this.repo.createUser(user)
+      .subscribe(
+        {
+          next: (v) => alert("User created!"),
+          error: (e) => alert(JSON.stringify(`
+                Error code: ${e.status}
+                Error message: ${e.error}`.replace(/\n/g, ''))),
+          complete: () => console.log('complete')
         })
-    }
+  }
 
 }
+
+    //
+    //       // rotar para home
+    //     },
+    //       err => {
+    //         console.log("Error received")
+    //         alert(JSON.stringify(`
+    //           Error code: ${err.status}
+    //           Error message: ${err.error}
+    //         `.replace(/\n/g, '')))
+    //       })
+    //
+    // }
+
