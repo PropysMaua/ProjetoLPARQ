@@ -14,10 +14,8 @@ class UserRepositoryMock {
               nationality: "Brazilian",
               birthDate: "17/03/2005",
               gender: "M",
-              currentLocation: {
-                city: "São Paulo",
-                country: "Brazil"
-              },
+              city: "São Paulo",
+              country: "Brazil",
               email: "mauricio@mauricio.com",
               phoneNumber: "+5511912345978",
               username: "mauricio",
@@ -31,10 +29,8 @@ class UserRepositoryMock {
               nationality: "Colombian",
               birthDate: "17/04/2004",
               gender: "F",
-              currentLocation: {
-                city: "São Paulo",
-                country: "Brazil"
-              },
+              city: "São Paulo",
+              country: "Brazil",
               email: "laura@laura.com",
               phoneNumber: "+5511912335678",
               username: "laura",
@@ -73,8 +69,6 @@ class UserRepositoryMock {
     this.users[index] = user
     return this.users[index]
   }
-
-
 
 }
 

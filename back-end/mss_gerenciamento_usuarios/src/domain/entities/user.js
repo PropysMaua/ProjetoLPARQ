@@ -6,7 +6,8 @@ class User {
     nationality
     birthDate
     gender
-    currentLocation
+    city
+    country
     email
     phoneNumber
     username
@@ -23,7 +24,8 @@ class User {
             nationality: this.nationality,
             birthDate: this.birthDate,
             gender: this.gender,
-            currentLocation: this.currentLocation,
+            city: this.city,
+            country: this.country,
             email: this.email,
             phoneNumber: this.phoneNumber,
             username: this.username,
