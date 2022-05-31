@@ -22,6 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import {UserService} from './Users/user.service';
 import {HttpClientModule} from "@angular/common/http";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -47,7 +49,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},

@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/user/getAll', (req, res) => {
-
     res.send(repo.users)
 })
 

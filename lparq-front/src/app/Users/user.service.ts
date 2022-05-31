@@ -1,6 +1,7 @@
 import { User } from "./user.model";
 import {UserRepoService} from "../repo/user-repo.service";
 import {Component, Injectable} from "@angular/core";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -15,19 +16,8 @@ export class UserService {
     this.repo = repo
   }
 
-  getUsers(): User[]{
-    let u: any
-    console.log("getUsers entrou: ")
-      u = this.repo.getUsers()
-        .subscribe(
-          {
-           next: (v) => {return v},
-            error: (e) => alert(JSON.stringify(`Error: ${e}`)),
-            complete: () => console.log('complete')
-          }
-        )
-    console.log("getUsers saiu: " + typeof JSON.stringify(u)) //todo ARRUMAR ISSO AQUI
-    return u
+  getUsers(): Observable<User[]>{
+    return this.repo.getUsers()
   }
 
 

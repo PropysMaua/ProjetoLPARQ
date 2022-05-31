@@ -102,3 +102,17 @@
     <button mat-raised-button color="warn" type="submit">Cadastrar-se</button>
   </form>
 </mat-card>
+
+Get all users
+<button mat-raised-button color="warn" (click)="getUsers()">Get all users</button>
+<div *ngIf="users$ | async as users; else loading">
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }} - {{ user.nationality }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #loading>
+<!--  <mat-spinner mode="indeterminate"></mat-spinner>-->
+</ng-template>

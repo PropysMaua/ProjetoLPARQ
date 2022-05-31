@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import {FormControl, Validators} from '@angular/forms';
+import {Observable} from "rxjs";
 
 
 class Gender{
@@ -26,12 +27,12 @@ export class AppUserRegisterComponent implements OnInit {
   startDate = new Date(1960, 0, 1)
   email = new FormControl('', [Validators.required, Validators.email])
   hide = true
-  users: User[] = []
+  users$: Observable<User[]>
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    // this.users = this.userService.getUsers()
+    // this.users$ = this.userService.getUsers()
     this.models = {
         gender: Gender
       }
@@ -42,10 +43,7 @@ export class AppUserRegisterComponent implements OnInit {
       new Gender('ND', 'Não Declarar'),
     ]
 
-    console.log("Users: ")
-    this.getUsers().forEach(value => console.log(value))
   }
-
 
   async onAddUser(form: NgForm){
     console.log("onAddUser: " + form.value)
@@ -58,13 +56,7 @@ export class AppUserRegisterComponent implements OnInit {
   }
 
   getUsers(){
-    let u: any[] = []
-    this.userService.getUsers().forEach(
-      value => {
-        u.push(value)
-      }
-    )
-    return u
+    this.users$ = this.userService.getUsers()
   }
 
   getErrorMessage(){
