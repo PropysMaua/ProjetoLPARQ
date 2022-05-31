@@ -30,4 +30,8 @@ export class AppUserListComponent implements OnInit {
     this.users = [...this.users, ...this.userService.getUsers()]
   }
 
+  displayedColumns: string[] = ['id', 'name', 'nationality', 'birthDate', 'gender','city','country',
+  'email', 'phoneNumber','username','password']
+  dataSource = this.users
+
 }

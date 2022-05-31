@@ -17,6 +17,10 @@ export class UserService{
         }
         this.Users.push(user)
     }
-
+    deleteUser(id: string): void{
+        this.Users.forEach((value, index)=>{
+            if (value.id==id) this.Users.splice(index,1)
+        })
+    }
 
 }

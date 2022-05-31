@@ -16,12 +16,14 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
 // Imports from Angular Material 
 import { MatCardModule } from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UserService } from './Users/user.service';
 import { AppUserListComponent } from './Users/app-user-list/app-user-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { AppUserDeleteComponent } from './Users/app-user-delete/app-user-delete.component';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { AppUserListComponent } from './Users/app-user-list/app-user-list.compon
     AppUserRegisterComponent,
     CabecalhoComponent,
     AppUserListComponent,
+    AppUserDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { AppUserListComponent } from './Users/app-user-list/app-user-list.compon
     MatIconModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatTableModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatInputModule,
