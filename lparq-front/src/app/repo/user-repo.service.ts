@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {User} from "../Users/user.model";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +18,9 @@ export class UserRepoService {
 
   getUsers(): Observable<User[]> {
   return this.http.get<User[]>(this.url + '/user/getAll')
-}
+  }
+
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete<any>(this.url + '/user?id=' + id)
+  }
 }

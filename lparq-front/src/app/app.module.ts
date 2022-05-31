@@ -27,7 +27,7 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { AppUserListComponent } from './Users/app-user-list/app-user-list.component';
 import { MatTableModule } from '@angular/material/table';
-import { AppUserDeleteComponent } from './Users/app-user-delete/app-user-delete.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 
@@ -35,31 +35,31 @@ import { AppUserDeleteComponent } from './Users/app-user-delete/app-user-delete.
   declarations: [
     AppComponent,
     AppUserRegisterComponent,
-    CabecalhoComponent
-    AppUserListComponent,
-    AppUserDeleteComponent,
+    CabecalhoComponent,
+    AppUserListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatIconModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatIconModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        MatExpansionModule
+    ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
     UserService

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-app-user-list',
@@ -8,30 +9,32 @@ import { User } from '../user.model';
   styleUrls: ['./app-user-list.component.css']
 })
 export class AppUserListComponent implements OnInit {
-  users : User [] = [
-    {
-      id: "82499efd-4385-435e-a894-b8432b01be58",
-      name: "Mauricio",
-      nationality: "Brazilian",
-      birthDate: "17/03/2005",
-      gender: "M",
-      city: "São Paulo",
-      country: "Brazil",
-      email: "mauricio@mauricio.com",
-      phoneNumber: "+5511912345978",
-      username: "mauricio",
-      password: "Teste123!"
-    }
-  ]
+  users$: Observable<User[]>
+  helper$: Observable<any>
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.users = [...this.users, ...this.userService.getUsers()]
+    this.users$ = this.userService.getUsers()
   }
 
   displayedColumns: string[] = ['id', 'name', 'nationality', 'birthDate', 'gender','city','country',
-  'email', 'phoneNumber','username','password']
-  dataSource = this.users
+  'email', 'phoneNumber','username','password', 'delete']
 
+  deleteUser(id: string) {
+    this.userService.deleteUser(id).subscribe(
+      {
+        next: (v) => alert("User Deleted!"),
+        error: (e) => alert(JSON.stringify(`
+                Error code: ${e.status}
+                Error message: ${e.error}`.replace(/\n/g, ''))),
+        complete: () => console.log('complete')
+      }
+    )
+  }
+
+
+  refreshUsers() {
+    this.users$ = this.userService.getUsers()
+  }
 }

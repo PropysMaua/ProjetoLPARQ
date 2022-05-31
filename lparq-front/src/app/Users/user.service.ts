@@ -11,8 +11,6 @@ export class UserService {
   repo: UserRepoService
   loading: boolean = false
 
-export class UserService{
-
   constructor(repo: UserRepoService) {
     this.repo = repo
   }
@@ -35,6 +33,10 @@ export class UserService{
                 Error message: ${e.error}`.replace(/\n/g, ''))),
           complete: () => console.log('complete')
         })
+  }
+
+  deleteUser(userId: string): Observable<any> {
+    return this.repo.deleteUser(userId)
   }
 
 }

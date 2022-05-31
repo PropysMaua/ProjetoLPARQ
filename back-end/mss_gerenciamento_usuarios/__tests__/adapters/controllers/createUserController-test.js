@@ -16,10 +16,8 @@ describe('createUserController', () => {
                 nationality: "Brazilian",
                 birthDate: "15/01/2001",
                 gender: "M",
-                currentLocation: {
-                    city: "São Paulo",
-                    country: "Brazil"
-                },
+                city: "São Paulo",
+                country: "Brazil",
                 email: "bruno@bruno.com",
                 phoneNumber: "+5511912345678",
                 username: "brvila",
@@ -35,7 +33,7 @@ describe('createUserController', () => {
         expect(httpResponse.body.nationality).toEqual(userMock.nationality)
         expect(httpResponse.body.birthDate).toEqual(userMock.birthDate)
         expect(httpResponse.body.gender).toEqual(userMock.gender)
-        expect(httpResponse.body.currentLocation).toEqual(userMock.currentLocation)
+        expect(httpResponse.body.city).toEqual(userMock.city)
         expect(httpResponse.body.email).toEqual(userMock.email)
         expect(httpResponse.body.phoneNumber).toEqual(userMock.phoneNumber)
         expect(httpResponse.body.username).toEqual(userMock.username)
