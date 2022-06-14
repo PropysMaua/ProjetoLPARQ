@@ -1,6 +1,12 @@
 
 
-
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>folder_shared</mat-icon>
+      Usuários Cadastrados
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 <mat-card>
   <ng-container>
     <button mat-button (click)="refreshUsers()">
@@ -8,6 +14,7 @@
       <span>refresh</span>
     </button>
   </ng-container>
+
 
   <ng-container *ngIf="users$ | async as users">
   <table mat-table [dataSource]="users" class="mat-elevation-z8">
@@ -69,7 +76,7 @@
 
       <ng-container matColumnDef="delete">
           <th mat-header-cell *matHeaderCellDef> Delete </th>
-          <td mat-cell *matCellDef="let element"> <button (click)="deleteUser(element.id)">x</button> </td>
+          <td mat-cell *matCellDef="let element"> <button mat-button (click)="deleteUser(element.id)"><mat-icon>delete</mat-icon></button> </td>
       </ng-container>
 
 
@@ -80,3 +87,4 @@
     </table>
   </ng-container>
 </mat-card>
+</mat-expansion-panel>
