@@ -47,6 +47,7 @@ export class AppUserRegisterComponent implements OnInit {
 
   async onAddUser(form: NgForm){
     console.log("onAddUser: " + form.value)
+    console.log("Valid form: " + form.valid)
     if(form.valid) {
       let u: User = {...form.value}
       await this.userService.addUser(u)
