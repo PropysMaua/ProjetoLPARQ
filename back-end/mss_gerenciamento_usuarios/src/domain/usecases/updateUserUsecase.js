@@ -14,7 +14,7 @@ class UpdateUserUsecase {
   }
 
   async execute(userId, attributesToUpdate) {
-    const allowedToUpdate = ['name', 'nationality', 'birthDate', 'gender', 'currentLocation', 'email', 'phoneNumber']
+    const allowedToUpdate = ['name', 'nationality', 'birthDate', 'gender', 'city', 'country', 'email', 'phoneNumber']
     if (userId === undefined) throw 'Id não informado.'
 
     const userToUpdate = await this._userRepository.getUserById(userId)
