@@ -25,6 +25,6 @@ export class UserRepoService {
   }
 
   updateUser(id: string, attributesToUpdate: object): Observable<any> {
-    return this.http.put<any>(this.url + '/user', id, attributesToUpdate)
+    return this.http.put<any>(this.url + '/user', attributesToUpdate, {params: new HttpParams().set('userId', id)})
   }
 }

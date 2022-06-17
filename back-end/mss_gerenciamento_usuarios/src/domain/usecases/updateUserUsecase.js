@@ -13,19 +13,18 @@ class UpdateUserUsecase {
     this._userRepository = userRepository
   }
 
-  async execute(user) {
+  async execute(userId, attributesToUpdate) {
     const allowedToUpdate = ['name', 'nationality', 'birthDate', 'gender', 'currentLocation', 'email', 'phoneNumber']
-    if (user.id === undefined) throw 'Id não informado.'
+    if (userId === undefined) throw 'Id não informado.'
 
-    const userToUpdate = await this._userRepository.getUserById(user.id)
+    const userToUpdate = await this._userRepository.getUserById(userId)
     if (userToUpdate === undefined) throw 'User não encontrado.'
 
-    for (let field of allowedToUpdate){
-      if (user[field] !== undefined) {
-        userToUpdate[field] = user[field]
-      }
+    for (const attribute in attributesToUpdate) {
+      if (!allowedToUpdate.includes(attribute)) throw `Atributo ${attribute} não permitido de ser alterado.`
     }
-    const updatedUser = await this._userRepository.updateUser(userToUpdate)
+
+    const updatedUser = await this._userRepository.updateUser(userId, attributesToUpdate)
     return updatedUser
   }
 }

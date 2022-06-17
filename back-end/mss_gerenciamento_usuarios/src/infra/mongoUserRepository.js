@@ -5,8 +5,6 @@ const {MongoUserDTO, MongoUserModel} = require("./dto/mongoUserDTO");
 
 
 class MongoUserRepository {
-    mongoConnection
-
     constructor() {
 
     }
@@ -27,20 +25,29 @@ class MongoUserRepository {
     async createUser(user) {
         const userDTO = MongoUserDTO.fromEntity(user)
         const mongoUser = userDTO.toMongoUser()
-        await mongoUser.save()
+        const userCreated = await mongoUser.save()
         console.log("Created: " + mongoUser)
+        return MongoUserDTO.fromMongo(userCreated).toEntity()
 
     }
 
     async getUserByField(field, value) {
-        const resp = await MongoUserModel.findOne(
-            {field: value}
-        )
-        if (resp === null) {
-            return null
+        try{
+            if (value === null || value === undefined) {
+                return null
+            }
+
+            const resp = await MongoUserModel.findOne(
+                {[field]: value}
+            )
+            if (resp === null) {
+                return null
+            }
+            const userDTO = MongoUserDTO.fromMongo(resp)
+            return userDTO.toEntity()
+        } catch (err) {
+            throw err
         }
-        const userDTO = MongoUserDTO.fromMongo(resp)
-        return userDTO.toEntity()
     }
 
 
@@ -57,7 +64,13 @@ class MongoUserRepository {
 
 
     async getUserById(id) {
-        return this.users.find(user => user.id === id)
+        const resp = await MongoUserModel.find(
+            {_id: id}
+        )
+        if (resp.length === 0) {
+            return null
+        }
+        return MongoUserDTO.fromMongo(resp[0]).toEntity()
     }
 
     /**
@@ -76,14 +89,12 @@ class MongoUserRepository {
         }
         return false
 
-        return resp
+    }
 
-
-
-
-
-
-
+    async getAllUsers() {
+        const resp = await MongoUserModel.find()
+        const users = resp.map(user => MongoUserDTO.fromMongo(user).toEntity())
+        return users
     }
 
 }

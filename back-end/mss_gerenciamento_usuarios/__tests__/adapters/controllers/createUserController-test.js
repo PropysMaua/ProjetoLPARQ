@@ -12,16 +12,15 @@ describe('createUserController', () => {
         let userMock = new User(
 
             {
-                name: "Bruno Vilardi",
-                nationality: "Brazilian",
-                birthDate: "15/01/2001",
-                gender: "M",
-                city: "São Paulo",
-                country: "Brazil",
-                email: "bruno@bruno.com",
-                phoneNumber: "+5511912345678",
-                username: "brvila",
-                password: "Teste123!"
+                name: 'Bruno',
+                birthDate: '1960-03-02T03:00:00.000Z',
+                gender: 'M',
+                nationality: 'Brazilian',
+                city: 'Sao Paulo',
+                country: 'Brazil',
+                phoneNumber: '09510021',
+                username: 'bruno',
+                password: 'dasd'
             }
         )
         const repo = new UserRepositoryMock()

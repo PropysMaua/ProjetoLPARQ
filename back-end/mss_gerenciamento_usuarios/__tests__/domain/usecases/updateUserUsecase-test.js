@@ -19,15 +19,17 @@ describe('updateUserUsecase', () => {
         userToUpdate.name = "New Name"
         userToUpdate.email = "new@email.com"
 
-        const updatedUser = await updateUserUsecase.execute(userToUpdate)
+        const updatedUser = await updateUserUsecase.execute(userToUpdate.id, {
+            name: userToUpdate.name,
+            email: userToUpdate.email
+        })
 
         expect(updatedUser.name).toBe("New Name")
         expect(updatedUser.email).toBe("new@email.com")
 
-        expectedUpdateUser = new User(userMock)
-        expectedUpdateUser.name = "New Name"
-        expectedUpdateUser.email = "new@email"
-        expect(updatedUser).toBe(userMock)
+        expect(repo.users[0].name).toBe("New Name")
+        expect(repo.users[0].email).toBe("new@email.com")
+
 
     })
 

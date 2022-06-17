@@ -96,6 +96,28 @@ describe('mongoUserRepository2', () => {
         })
 })
 
+describe('mongoUserRepository3', () => {
+    it("should create 2 Users, get all users and delete all users", async () => {
+        const repo = await MongoUserRepository.createConnection()
+        const mockRepo = new UserRepositoryMock()
 
+        const user1 = mockRepo.users[0]
+        const user2 = mockRepo.users[1]
+
+        const resp1 = await repo.createUser(user1)
+        const resp2 = await repo.createUser(user2)
+
+        const resp = await repo.getAllUsers()
+        console.log("Get all users: \n" + resp)
+        expect(resp.length).toBeGreaterThan(1)
+
+        await repo.deleteUser(resp1.id)
+        await repo.deleteUser(resp2.id)
+
+
+
+
+    })
+})
 
 jest.setTimeout(1000000);

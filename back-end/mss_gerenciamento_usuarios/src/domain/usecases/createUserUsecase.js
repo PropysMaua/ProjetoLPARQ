@@ -1,8 +1,6 @@
 
 const {User} = require("../../../src/domain/entities/user")
 
-const {v4: uuidv4} = require('uuid')
-
 
 class CreateUserUsecase {
 
@@ -22,7 +20,6 @@ class CreateUserUsecase {
         if (userExists) throw 'User already exists'
       }
 
-      user.id = uuidv4()
       const newUser = await this._userRepository.createUser(user)
 
       return newUser

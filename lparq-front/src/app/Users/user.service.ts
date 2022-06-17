@@ -20,7 +20,7 @@ export class UserService {
   }
 
   addUser(user: User) {
-    console.log("Criar user: " + user)
+    console.log("Criar user: " + JSON.stringify(user))
     // const user: User = {
     //     id, name, nationality, birthDate, gender, city, country, email, phoneNumber, username, password
     // }

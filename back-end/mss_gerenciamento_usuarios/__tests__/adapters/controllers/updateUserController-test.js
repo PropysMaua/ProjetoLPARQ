@@ -16,13 +16,12 @@ describe('updateUserController', () => {
 
         const updateUserController = new UpdateUserController(repo)
         const userToUpdate = {
-            id: userMock.id,
             name: "new name",
             nationality: "Japanese",
             gender: "F"
         }
 
-        const httpRequest = new HttpRequest(userToUpdate)
+        const httpRequest = new HttpRequest(userToUpdate, {userId: userMock.id})
         const httpResponse = await updateUserController.execute(httpRequest)
 
         expect(httpResponse.statusCode).toBe(200)

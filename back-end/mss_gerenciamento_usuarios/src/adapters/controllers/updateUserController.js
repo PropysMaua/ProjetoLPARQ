@@ -19,8 +19,9 @@ class UpdateUserController{
     async execute(req){
         let httpResponse = new HttpResponse()
         try {
-            const user = new User(req.body)
-            const result = await this.updateUserUsecase.execute(user)
+            const userId = req.queryParameters.userId
+            const attributesToUpdate = req.body
+            const result = await this.updateUserUsecase.execute(userId, attributesToUpdate)
             httpResponse.statusCode = 200
             httpResponse.body = result
 

@@ -1,4 +1,5 @@
 const {User} = require("../domain/entities/user");
+const {v4: uuidv4} = require("uuid");
 
 
 class UserRepositoryMock {
@@ -42,6 +43,7 @@ class UserRepositoryMock {
   }
 
   async createUser(user) {
+    user.id = uuidv4()
     this.users.push(user)
     return this.users[this.users.length - 1]
   }
@@ -49,7 +51,7 @@ class UserRepositoryMock {
   async deleteUser(id){
     const index = this.users.findIndex(u => u.id === id)
     this.users.splice(index, 1)
-    return 
+    return
   }
 
   async getUserByField(field, value) {
@@ -64,10 +66,14 @@ class UserRepositoryMock {
     return this.users.find(user => user.id === id)
   }
 
-  async updateUser(user) {
-    const index = this.users.findIndex(u => u.id === user.id)
-    this.users[index] = user
+  async updateUser(userId, attributes) {
+    const index = this.users.findIndex(u => u.id === userId)
+    this.users[index] = {...this.users[index], ...attributes}
     return this.users[index]
+  }
+
+  async getAllUsers() {
+    return this.users
   }
 
 }
