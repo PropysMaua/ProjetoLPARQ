@@ -50,6 +50,10 @@ export class AppUserRegisterComponent implements OnInit {
     console.log("Valid form: " + form.valid)
     if(form.valid) {
       let u: User = {...form.value}
+
+      //parse date to string
+      u.birthDate = new Date(u.birthDate).toLocaleDateString()
+
       await this.userService.addUser(u)
     }
     // console.log(this.userService.getUsers())
