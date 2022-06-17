@@ -39,6 +39,10 @@ export class UserService {
     return this.repo.deleteUser(userId)
   }
 
+  updateUser(userId: string, attributesToUpdate: object): Observable<any> {
+    return this.repo.updateUser(userId, attributesToUpdate)
+  }
+
 }
 
     //

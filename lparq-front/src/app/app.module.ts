@@ -28,6 +28,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { AppUserListComponent } from './Users/app-user-list/app-user-list.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { UpdateUserComponent } from './Users/app-update-user/update-user.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -36,7 +38,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     AppComponent,
     AppUserRegisterComponent,
     CabecalhoComponent,
-    AppUserListComponent
+    AppUserListComponent,
+    UpdateUserComponent
   ],
     imports: [
         BrowserModule,
@@ -58,7 +61,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
         HttpClientModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatDialogModule
     ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},

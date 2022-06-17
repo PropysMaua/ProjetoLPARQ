@@ -23,4 +23,8 @@ export class UserRepoService {
   deleteUser(id: string): Observable<any> {
     return this.http.delete<any>(this.url + '/user?id=' + id)
   }
+
+  updateUser(id: string, attributesToUpdate: object): Observable<any> {
+    return this.http.put<any>(this.url + '/user', id, attributesToUpdate)
+  }
 }

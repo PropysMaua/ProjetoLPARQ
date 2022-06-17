@@ -6,7 +6,7 @@ import {FormControl, Validators} from '@angular/forms';
 import {Observable} from "rxjs";
 
 
-class Gender{
+export class Gender{
   value: string
   viewValue: string
   constructor(value: string, viewValue: string) {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import {Observable} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {UpdateUserComponent} from "../app-update-user/update-user.component";
 
 @Component({
   selector: 'app-app-user-list',
@@ -10,16 +12,15 @@ import {Observable} from "rxjs";
 })
 export class AppUserListComponent implements OnInit {
   users$: Observable<User[]>
-  helper$: Observable<any>
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.users$ = this.userService.getUsers()
   }
 
   displayedColumns: string[] = ['id', 'name', 'nationality', 'birthDate', 'gender','city','country',
-  'email', 'phoneNumber','username','password', 'delete']
+  'email', 'phoneNumber','username','password', 'delete', 'update']
 
   deleteUser(id: string) {
     this.userService.deleteUser(id).subscribe(
@@ -33,8 +34,21 @@ export class AppUserListComponent implements OnInit {
     )
   }
 
+  updateUser(id: string, attributesToUpdate: object) {
+
+  }
+
+  updateUserDialog(user: User) {
+    const dialogRef = this.dialog.open(UpdateUserComponent, {
+      width: '1000px',
+      data: user,
+    })
+    dialogRef.componentInstance.user = user
+  }
+
 
   refreshUsers() {
     this.users$ = this.userService.getUsers()
   }
 }
+
