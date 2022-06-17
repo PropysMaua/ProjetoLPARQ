@@ -49,11 +49,18 @@ export class UpdateUserComponent implements OnInit {
     if(form.valid) {
       let u = {...form.value}
       console.log("u: " + JSON.stringify(u))
+
+      if (u.birthDate != "") {
+        u.birthDate = new Date(u.birthDate).toLocaleDateString()
+      }
+
+
       for (let key in u) {
         if (u[key] === "" || u[key] === null) {
           delete u[key]
         }
       }
+
       console.log("u parsed: " + JSON.stringify(u))
       console.log(`Try to update user ${this.user.id} with values: ${JSON.stringify(u)}`)
       const resp = await this.userService.updateUser(this.user.id, u)
