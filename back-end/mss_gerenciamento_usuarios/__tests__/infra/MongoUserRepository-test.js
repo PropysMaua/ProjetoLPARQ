@@ -2,7 +2,7 @@
 
 
 const {UserRepositoryMock} = require("./../../src/infra/userRepositoryMock");
-const {MongoUserRepository} = require("../../src/infra/mongoUserRepository");
+const {MongoUserRepository} = require("./../../src/infra/mongoUserRepository");
 
 
 // Deveria ser de um cluster separado, porem o mongo só deixa ter um cluster gratuito por vez
@@ -123,4 +123,4 @@ describe('mongoUserRepository3', () => {
     })
 })
 
-jest.setTimeout(1000000);
+jest.setTimeout(10000);
