@@ -36,15 +36,22 @@ class MongoUserRepository {
         const resp = await MongoUserModel.findOne(
             {field: value}
         )
+        if (resp === null) {
+            return null
+        }
         const userDTO = MongoUserDTO.fromMongo(resp)
         return userDTO.toEntity()
     }
 
 
     async deleteUser(id){
-        const index = this.users.findIndex(u => u.id === id)
-        this.users.splice(index, 1)
-        return
+        const resp = await MongoUserModel.deleteOne(
+            {_id: id}
+        )
+        if (resp.deletedCount === 1) {
+            return true
+        }
+        return false
     }
 
 
@@ -53,10 +60,30 @@ class MongoUserRepository {
         return this.users.find(user => user.id === id)
     }
 
-    async updateUser(user) {
-        const index = this.users.findIndex(u => u.id === user.id)
-        this.users[index] = user
-        return this.users[index]
+    /**
+     *
+     * @param userId
+     * @param elementsToUpdate {{field: value}, {field: value}}
+     * @returns {Promise<void>}
+     */
+    async updateUser(userId, elementsToUpdate) {
+        const resp = await MongoUserModel.updateOne(
+            {_id: userId},
+            {$set: elementsToUpdate}
+        )
+        if (resp.modifiedCount === 1) {
+            return true
+        }
+        return false
+
+        return resp
+
+
+
+
+
+
+
     }
 
 }
