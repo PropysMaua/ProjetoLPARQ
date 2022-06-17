@@ -6,15 +6,16 @@ const {UpdateUserUsecase} = require("../../src/domain/usecases/updateUserUsecase
 const {UserRepositoryMock} = require("../../src/infra/userRepositoryMock");
 
 
-
+// Deveria ser de um cluster separado, porem o mongo só deixa ter um cluster gratuito por vez
+const MONGO_STRING_CONNECTION = `mongodb+srv://teste-user:teste-user@lpqar.fedrdic.mongodb.net/?retryWrites=true&w=majority`
 
 describe('mongoUserRepository', () => {
     it('should connect to Mongo', async () => {
-        const repo = await MongoUserRepository.createConnection()
+        const repo = await MongoUserRepository.createConnection(MONGO_STRING_CONNECTION)
     }),
 
     it("should create a User, get a user and delete a user", async () => {
-        const repo = await MongoUserRepository.createConnection()
+        const repo = await MongoUserRepository.createConnection(MONGO_STRING_CONNECTION)
         const mockRepo = new UserRepositoryMock()
 
         user = mockRepo.users[0]
@@ -42,7 +43,7 @@ describe('mongoUserRepository', () => {
 
 describe('mongoUserRepository2', () => {
         it("should create a User, get a user updateUser and delete a user", async () => {
-            const repo = await MongoUserRepository.createConnection()
+            const repo = await MongoUserRepository.createConnection(MONGO_STRING_CONNECTION)
             const mockRepo = new UserRepositoryMock()
 
             const user = mockRepo.users[1]
@@ -98,7 +99,7 @@ describe('mongoUserRepository2', () => {
 
 describe('mongoUserRepository3', () => {
     it("should create 2 Users, get all users and delete all users", async () => {
-        const repo = await MongoUserRepository.createConnection()
+        const repo = await MongoUserRepository.createConnection(MONGO_STRING_CONNECTION)
         const mockRepo = new UserRepositoryMock()
 
         const user1 = mockRepo.users[0]
@@ -111,8 +112,11 @@ describe('mongoUserRepository3', () => {
         console.log("Get all users: \n" + resp)
         expect(resp.length).toBeGreaterThan(1)
 
-        await repo.deleteUser(resp1.id)
-        await repo.deleteUser(resp2.id)
+        const resp4 = await repo.deleteUser(resp1.id)
+        const resp5 =await repo.deleteUser(resp2.id)
+
+        expect(resp4).toBe(true)
+        expect(resp5).toBe(true)
 
 
 

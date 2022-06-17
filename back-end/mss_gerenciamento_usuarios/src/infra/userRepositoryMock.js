@@ -11,30 +11,30 @@ class UserRepositoryMock {
         new User(
             {
               id: "82499efd-4385-435e-a894-b8432b01be58",
-              name: "Mauricio",
-              nationality: "Brazilian",
+              name: "Jonas Brother",
+              nationality: "Brasileiro",
               birthDate: "17/03/2005",
               gender: "M",
               city: "São Paulo",
-              country: "Brazil",
-              email: "mauricio@mauricio.com",
-              phoneNumber: "+5511912345978",
-              username: "mauricio",
+              country: "Brasil",
+              email: "jonas@brothers.com",
+              phoneNumber: "+551165487912",
+              username: "john",
               password: "Teste123!"
             }
         ),
         new User(
             {
               id: "e5325aee-efb6-4c00-917b-e8dbe4744335",
-              name: "Laura",
-              nationality: "Colombian",
+              name: "Tina Puentes",
+              nationality: "Colombiana",
               birthDate: "17/04/2004",
               gender: "F",
               city: "São Paulo",
               country: "Brazil",
-              email: "laura@laura.com",
-              phoneNumber: "+5511912335678",
-              username: "laura",
+              email: "tina@peuntes.com",
+              phoneNumber: "+5511648465451",
+              username: "tinpuen",
               password: "Teste123!"
             }
         )
