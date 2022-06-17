@@ -1,0 +1,93 @@
+
+
+
+<mat-panel-title>
+      <mat-icon>create</mat-icon>
+      Atualizar usuário
+    </mat-panel-title>
+<mat-card>
+    <mat-card-title>Preencha os campos a seguir com as informações necessárias</mat-card-title>
+    <form (ngSubmit)="onUpdateUser(userForm)" #userForm="ngForm">
+      <table>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Digite seu nome</mat-label>
+            <input matInput type="text" ngModel name="name" placeholder="{{user.name}}"  #nameInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Informe sua data de nascimento</mat-label>
+            <input matInput ngModel name ="birthDate" placeholder="{{user.birthDate}}" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Informe seu Gênero</mat-label>
+            <input list="genders-list" matInput ngModel name="gender" placeholder="{{user.gender}}" type="text"  #genderInput>
+            <datalist id="genders-list">
+              <option ngModel name="gender" *ngFor="let g of genders" [value]="g.value">
+                {{ g.viewValue }}
+              <option>
+            </datalist>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Informe sua Nacionalidade</mat-label>
+            <input matInput type="text" ngModel name="nationality" placeholder="{{user.nationality}}"  #nationalityInput>
+          </mat-form-field>
+        </td>
+      </table>
+
+      <p>Local onde reside atualmente</p>
+      <table>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput type="text" ngModel name="city" placeholder="{{user.city}}"  #cityInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>País</mat-label>
+            <input matInput type="text" ngModel name="country" placeholder="{{user.country}}"  #countryInput>
+          </mat-form-field>
+        </td>
+      </table>
+
+      <p>Informações de contato</p>
+      <table>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput ngModel name="email" placeholder="{{user.email}}">
+
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Número</mat-label>
+            <input matInput type="text" ngModel name="phoneNumber" placeholder="{{user.phoneNumber}}"  #phoneNumberInput>
+          </mat-form-field>
+        </td>
+      </table>
+
+      <p>Dados da conta</p>
+      <table>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Nome de Usuário</mat-label>
+            <input matInput type="text" ngModel name="username" placeholder="{{user.username}}"  #usernameInput>
+          </mat-form-field>
+        </td>
+      </table>
+
+      <p></p>
+      <button color="cadastro" mat-raised-button type="submit">Atualizar</button>
+    </form>
+</mat-card>
+
