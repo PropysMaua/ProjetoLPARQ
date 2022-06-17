@@ -1,9 +1,8 @@
 
 
-const {User} = require("../../src/domain/entities/user")
-const {MongoUserRepository} = require("../../src/infra/MongoUserRepository")
-const {UpdateUserUsecase} = require("../../src/domain/usecases/updateUserUsecase");
-const {UserRepositoryMock} = require("../../src/infra/userRepositoryMock");
+
+const {UserRepositoryMock} = require("./../../src/infra/userRepositoryMock");
+const {MongoUserRepository} = require("../../src/infra/mongoUserRepository");
 
 
 // Deveria ser de um cluster separado, porem o mongo só deixa ter um cluster gratuito por vez
