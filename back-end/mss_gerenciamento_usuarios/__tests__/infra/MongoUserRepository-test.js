@@ -2,7 +2,8 @@
 
 
 const {UserRepositoryMock} = require("./../../src/infra/userRepositoryMock");
-const {MongoUserRepository} = require("../../src/infra/mongoUserRepository");
+const {MongoUserRepository} = require("./../../src/infra/mongoUserRepository");
+const mongoose = require("mongoose");
 
 
 // Deveria ser de um cluster separado, porem o mongo só deixa ter um cluster gratuito por vez
@@ -11,6 +12,7 @@ const MONGO_STRING_CONNECTION = `mongodb+srv://teste-user:teste-user@lpqar.fedrd
 describe('mongoUserRepository', () => {
     it('should connect to Mongo', async () => {
         const repo = await MongoUserRepository.createConnection(MONGO_STRING_CONNECTION)
+
     }),
 
     it("should create a User, get a user and delete a user", async () => {
@@ -37,6 +39,11 @@ describe('mongoUserRepository', () => {
 
         const resp3 = await repo.getUserByField('username', mockRepo.users[0].username)
         expect(resp3).toBe(null)
+    })
+    afterAll(done => {
+        // Closing the DB connection allows Jest to exit successfully.
+        mongoose.connection.close()
+        done()
     })
 })
 
@@ -94,6 +101,11 @@ describe('mongoUserRepository2', () => {
             const resp4 = await repo.getUserByField('username', mockRepo.users[1].username)
             expect(resp4).toBe(null)
         })
+    afterAll(done => {
+        // Closing the DB connection allows Jest to exit successfully.
+        mongoose.connection.close()
+        done()
+    })
 })
 
 describe('mongoUserRepository3', () => {
@@ -112,15 +124,16 @@ describe('mongoUserRepository3', () => {
         expect(resp.length).toBeGreaterThan(1)
 
         const resp4 = await repo.deleteUser(resp1.id)
-        const resp5 =await repo.deleteUser(resp2.id)
+        const resp5 = await repo.deleteUser(resp2.id)
 
         expect(resp4).toBe(true)
         expect(resp5).toBe(true)
 
-
-
-
+    })
+    afterAll(done => {
+        // Closing the DB connection allows Jest to exit successfully.
+        mongoose.connection.close()
+        done()
     })
 })
 
-jest.setTimeout(1000000);
