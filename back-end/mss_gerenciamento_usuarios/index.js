@@ -8,11 +8,27 @@ const {GetUserController} = require("./src/adapters/controllers/getUserControlle
 const { DeleteUserController } = require('./src/adapters/controllers/deleteUserController');
 const {MongoUserRepository} = require("./src/infra/mongoUserRepository");
 const {GetAllUsersController} = require("./src/adapters/controllers/getAllUsersController");
+require('dotenv').config();
 
 const app = express()
 app.use(express.json())
 app.use(cors())
-const repo = MongoUserRepository.createConnection()
+
+const {
+    MONGO_USER,
+    MONGO_PASSWORD,
+    MONGO_HOST,
+    MONGO_CLUSTER,
+} = process.env
+
+
+const mongoConnectionURL = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}.${MONGO_HOST}.mongodb.net/?retryWrites=true&w=majority`
+
+console.log(mongoConnectionURL)
+
+const repo = MongoUserRepository.createConnection(mongoConnectionURL)
+
+
 repo.then((repo) => {
     const createUserController = new CreateUserController(repo)
     const updateUserController = new UpdateUserController(repo)

@@ -9,8 +9,7 @@ class MongoUserRepository {
 
     }
 
-    static async createConnection() {
-        const connectString = `mongodb+srv://nodeUser:LPAQR@lpqar.fedrdic.mongodb.net/?retryWrites=true&w=majority`
+    static async createConnection(connectString) {
         try {
             await mongoose.connect(connectString)
         } catch (err) {
