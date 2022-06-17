@@ -1,11 +1,38 @@
-table{
-    margin-top: 2rem;
-    width: 100%;
-}
 
 mat-expansion-panel{
     padding: 0;
     margin-top: 2rem;
     margin-left: 10rem;
     margin-right: 10rem;
+}
+
+table, th, td{
+    border:1px solid lightgrey;
+}
+
+table{
+    margin-top: 1rem;
+}
+
+td.mat-cell, th.mat-header-cell {
+    color:black;
+    text-align: center;
+    justify-content:center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.mat-header-cell{
+    font-size:medium;
+}
+
+th.mat-header-cell:first-of-type, th.mat-header-cell:last-of-type{
+    padding: 0;
+}
+
+td.mat-cell:first-of-type, td.mat-cell:last-of-type{
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
 }
