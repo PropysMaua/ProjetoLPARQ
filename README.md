@@ -35,7 +35,7 @@ A arquitetura do app é composta por 2 microsserviços ([nodeJS](https://nodejs.
 ## Back End
 
 ### Arquitetura
-A arquitetura do back-end é baseada em MVC e Clean Architecture:
+A arquitetura do back-end é baseada na seguinte interpretação de Clean Architecture:
 
 ![img.png](docFiles/BackEnd-Arch.png)
 
