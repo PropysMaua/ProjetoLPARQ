@@ -34,13 +34,11 @@ A proposta do projeto é desenvolver um app para ajudar refugiados encontrar cas
 
 ## Arquitetura
 
-A arquitetura do app é composta por 2 microsserviços ([nodeJS](https://nodejs.org/)), 1 barramento de eventos ([nodeJS](https://nodejs.org/)) e 1 front end [Angular](https://angular.io/).
+A arquitetura do app é composta por 1 microsserviço ([nodeJS](https://nodejs.org/)) e 1 front end [Angular](https://angular.io/).
 - Microsserviço de gerenciamento de usuarios: **`/back-end/mss_gerenciamento_usuarios`**
   - Documentação: [link](https://documenter.getpostman.com/view/16858667/Uyr5of2L)
   - Diretório: [shortcut](https://github.com/PropysMaua/ProjetoLPARQ/tree/main/back-end/mss_gerenciamento_usuarios)
-- Microsserviço de gerenciamento casas: TBD
-- Barramento de eventos: TBD
-- Front-end: TBD
+- Front-end: **`/lparq-front`**
 
 
 ## Back End
