@@ -7,6 +7,17 @@ Este é um repositório para o projeto das disciplinas ECM 516 - Arquitetura de 
 O tema geral para o projeto é: **soluções computacionais para problemas causados
 por guerras.**
 
+## Integrantes
+
+| Nome        | RA           | 
+| ------------- |:-------------:| 
+| Bruno Vilardi Bueno | 19.00331-5 | 
+| Fernando Oliveira de Souza      | 19.00617-9 | 
+| Gustavo Zamboni do Carmo | 19.01266-7 | 
+
+## Video mostrando o funcionamento
+ [![IMAGE ALT TEXT](http://img.youtube.com/vi/0kq_iBCmOO4/0.jpg)](http://www.youtube.com/watch?v=0kq_iBCmOO4 "Video Title")
+
 ## Proposta
 
 A proposta do projeto é desenvolver um app para ajudar refugiados encontrar casas que possam os abrigar.
