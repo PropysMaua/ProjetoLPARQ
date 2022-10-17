@@ -49,3 +49,16 @@ A arquitetura do back-end é baseada na seguinte interpretação de Clean Archit
 ![img.png](docFiles/BackEnd-Arch.png)
 
 
+## Como rodar o projeto
+
+### Buildar o projeto
+
+    docker-compose build
+
+### Rodar o projeto
+
+    docker-compose up
+
+
+
+

@@ -1,0 +1,9 @@
+
+
+services:
+  backend:
+    build:
+        context: ./back-end/mss_gerenciamento_usuarios
+        dockerfile: Dockerfile
+    ports:
+        - "3000:3000"
