@@ -59,6 +59,9 @@ A arquitetura do back-end é baseada na seguinte interpretação de Clean Archit
 
     docker-compose up
 
+### Alternativa: usar o script para execução (Windows)
+
+    run-docker.bat
 
 
 
