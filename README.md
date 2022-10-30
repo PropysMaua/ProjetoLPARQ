@@ -63,5 +63,13 @@ A arquitetura do back-end é baseada na seguinte interpretação de Clean Archit
 
     run-docker.bat
 
+### Usando Kubernetes: (minikube + kubectl devem estar instalados)
+
+    run-kubernetes.cmd
+
+### Visualizando o service no kubernetes 
+
+    minikube service hello-world-service
+
 
 
