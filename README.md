@@ -69,7 +69,9 @@ A arquitetura do back-end é baseada na seguinte interpretação de Clean Archit
 
 ### Visualizando o service no kubernetes 
 
-    minikube service hello-world-service
+    minikube service hello-world-service --url
+
+![img.png](img.png)
 
 
 
