@@ -5,7 +5,7 @@ import axios from 'axios'
 const UsersList = () => {
     
     const [users, getUsers] = useState([])
-    const url = 'http://localhost:3000'
+    const url = "http://localhost:3001"
 
     useEffect(() => {
         getAllUsers()

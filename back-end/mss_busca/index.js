@@ -54,7 +54,7 @@ repo.then((repo) => {
 
 
 
-  app.listen(3000, () => {
+  app.listen(3002, () => {
     console.log('Mss busca. Listening on port 3000!')
   })
 })
