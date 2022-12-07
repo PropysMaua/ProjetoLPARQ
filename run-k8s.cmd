@@ -7,3 +7,6 @@ docker build back-end/mss_busca/. -t lparq-mss_busca
 minikube image load lparq-mss_busca
 kubectl apply -f mss_busca.yaml
 
+docker build front-react/. -t lparq-front-react
+minikube image load lparq-front-react
+kubectl apply -f front-react.yaml
