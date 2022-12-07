@@ -85,7 +85,7 @@ repo.then((repo) => {
     })
 
 
-    app.listen(3000, () => {
+    app.listen(3001, () => {
         console.log('Mss gerenciamento de User. Listening on port 3000!')
     })
 })
