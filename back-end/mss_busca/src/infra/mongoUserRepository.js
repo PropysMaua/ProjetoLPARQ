@@ -63,7 +63,7 @@ class MongoUserRepository {
             const resp = await MongoUserModel.find(
               {[field]: value}
             )
-            console.log("resp: " + resp)
+
             if (resp === null) {
                 return null
             }
@@ -74,7 +74,7 @@ class MongoUserRepository {
                 users.push(userDTO.toEntity())
             })
 
-            console.log("users: " + users)
+
 
 
             return users
