@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mss-gerenciamento-usuarios
+  labels:
+      app: mss-gerenciamento-usuarios
+spec:
+  selector:
+    matchLabels:
+      app: mss-gerenciamento-usuarios
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mss-gerenciamento-usuarios
+        tier: service
+    spec:
+      containers:
+        - name: node-backend
+          image: lparq-mss_gerenciamento_usuarios:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mss-gerenciamento-usuarios
+  labels:
+    app: mss-gerenciamento-usuarios
+    tier: service
+spec:
+  selector:
+    app: mss-gerenciamento-usuarios
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+

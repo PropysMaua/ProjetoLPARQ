@@ -24,7 +24,7 @@ const {
 
 const mongoConnectionURL = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}.${MONGO_HOST}.mongodb.net/?retryWrites=true&w=majority`
 
-console.log(mongoConnectionURL)
+// console.log(mongoConnectionURL)
 
 const repo = MongoUserRepository.createConnection(mongoConnectionURL)
 
