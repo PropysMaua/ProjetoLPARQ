@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const UsersList = () => {
     
-    const [users, getUsers] = useState([])
+    const [users, setUsers] = useState([])
     const url = "http://localhost:3001"
 
     useEffect(() => {
@@ -15,12 +15,12 @@ const UsersList = () => {
         await axios.get(`${url}/user/getAll`)
         .then((res) => {
             const usersData = res.data
-            getUsers(usersData)
+            setUsers(usersData)
         })
         .catch(error => console.log(`Error: ${error}`))
         }
 
-    const displayData = users.map((info)=>{
+    const displayData = users.map((info, i)=>{
             return(
                 <tr>
                     <td>{info.id}</td>
