@@ -20,9 +20,9 @@ const UsersList = () => {
         .catch(error => console.log(`Error: ${error}`))
         }
 
-    const displayData = users.map((info, i)=>{
+    const displayData = users.map((info)=>{
             return(
-                <tr>
+                <tr key={info.id}>
                     <td>{info.id}</td>
                     <td>{info.name}</td>
                     <td>{info.nationality}</td>
@@ -36,8 +36,7 @@ const UsersList = () => {
                     <td>{info.password}</td>
                 </tr>
             )
-        }
-    )
+        })
     
     return (
         <div>
