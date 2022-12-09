@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const SignUp = () => {
 
@@ -12,6 +13,8 @@ const SignUp = () => {
     const [phoneNumber, setPhoneNumber] = useState("")
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
+
+    const url = "http://localhost:3001"
 
     const handleInputChange = (e) => {
         const {id, value} = e.target
@@ -52,8 +55,23 @@ const SignUp = () => {
         }
     }
 
-    const handleSubmit = () => {
-        console.log(name, phoneNumber)
+    let jsonData = {
+        name: name,
+        nationality: nationality,
+        birthdate : birthdate,
+        gender : gender,
+        city : city,
+        country : country,
+        email : email,
+        phoneNumber : phoneNumber,
+        username : username,
+        password : password
+    }
+
+    const handleSubmit = async () => {
+        await axios.post(`${url}/user`, jsonData)
+        .then(console.log(jsonData))
+        .catch(error => console.log(`Error: ${error}`))
     }
 
 
