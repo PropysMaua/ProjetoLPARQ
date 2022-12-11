@@ -58,7 +58,7 @@ const SignUp = () => {
     let jsonData = {
         name: name,
         nationality: nationality,
-        birthdate : birthdate,
+        birthDate : birthdate,
         gender : gender,
         city : city,
         country : country,
@@ -80,29 +80,29 @@ const SignUp = () => {
             <form>
                 <div className="form-row d-flex">
                     <div className="col-md-4 mb-3">
-                        <label for="name">Personal Info</label>
+                        <label htmlFor="name">Personal Info</label>
                         <input type="text" className="form-control" id="name" placeholder="Name" required
                         value={name} onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className="col-md-4 mb-3">
-                        <label for="gender"></label>
+                        <label htmlFor="gender"></label>
                         <input type="text" className="form-control" id="gender" placeholder="Gender (M/F)" required
                         value={gender} onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className="col-md-4 mb-3">
-                        <label for="birthdate"></label>
+                        <label htmlFor="birthdate"></label>
                         <input type="text" className="form-control" id="birthdate" placeholder="Birthdate (DD/MM/YYYY)" required
                         value={birthdate} onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className="col-md-4 mb-3">
-                        <label for="nationality"></label>
+                        <label htmlFor="nationality"></label>
                         <input type="text" className="form-control" id="nationality" placeholder="Nationality" required
                         value={nationality} onChange={(e) => handleInputChange(e)}/>
                     </div>
                 </div>
                 <div className="form-row d-flex">
                     <div className="col-md-4 mb-3"> Contact Info
-                        <label for="email"></label>
+                        <label htmlFor="email"></label>
                         <div className="input-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text">@</span>
@@ -112,31 +112,31 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className="col-md-3 mb-3">
-                        <label for="phoneNumber"></label>
+                        <label htmlFor="phoneNumber"></label>
                         <input type="text" className="form-control" id="phoneNumber" placeholder="Phone Number" required
                         value={phoneNumber} onChange={(e) => handleInputChange(e)}/>
                     </div>
                 </div>
                 <div className="form-row d-flex">
                     <div className="col-md-6 mb-3">
-                        <label for="city">Address</label>
+                        <label htmlFor="city">Address</label>
                         <input type="text" className="form-control" id="city" placeholder="City" required
                         value={city} onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className="col-md-3 mb-3">
-                        <label for="country"></label>
+                        <label htmlFor="country"></label>
                         <input type="text" className="form-control" id="country" placeholder="Country" required
                         value={country} onChange={(e) => handleInputChange(e)}/>
                     </div>
                 </div>
                 <div className="form-row d-flex">
                     <div className="col-md-6 mb-3">
-                        <label for="username">Account</label>
+                        <label htmlFor="username">Account</label>
                         <input type="text" className="form-control" id="username" placeholder="Username" required
                         value={username} onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className="col-md-3 mb-3">
-                        <label for="password"></label>
+                        <label htmlFor="password"></label>
                         <input type="text" className="form-control" id="password" placeholder="Password" required
                         value={password} onChange={(e) => handleInputChange(e)}/>
                     </div>

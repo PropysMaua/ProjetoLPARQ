@@ -16,6 +16,7 @@ const UsersList = () => {
         .then((res) => {
             const usersData = res.data
             setUsers(usersData)
+            console.log(res.data)
         })
         .catch(error => console.log(`Error: ${error}`))
         }
