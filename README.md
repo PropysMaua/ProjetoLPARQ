@@ -30,15 +30,18 @@ A proposta do projeto é desenvolver um app para ajudar refugiados encontrar cas
 - Framework para desenvolvimento das APIs: [Express.js](https://expressjs.com/)
 - Gerenciamento e documentação das APIs: [Postman](https://www.postman.com/)
 - Testes de integração: [Jest](https://jestjs.io/) + [Github Actions](https://github.com/features/actions)
-- Desenvolvimento do UI: [Angular](https://angular.io/)
+- Desenvolvimento do UI (Parte 1): [Angular](https://angular.io/)
+- Desenvolvimento do UI (Parte 2): [React](https://reactjs.org/)
 
 ## Arquitetura
 
-A arquitetura do app é composta por 1 microsserviço ([nodeJS](https://nodejs.org/)) e 1 front end [Angular](https://angular.io/).
+A arquitetura do app é composta por 2 microsserviços ([nodeJS](https://nodejs.org/)) e 1 front end (Parte 1) [Angular](https://angular.io/) (Parte 2) [React](https://reactjs.org/).
 - Microsserviço de gerenciamento de usuarios: **`/back-end/mss_gerenciamento_usuarios`**
   - Documentação: [link](https://documenter.getpostman.com/view/16858667/Uyr5of2L)
   - Diretório: [shortcut](https://github.com/PropysMaua/ProjetoLPARQ/tree/main/back-end/mss_gerenciamento_usuarios)
-- Front-end: **`/lparq-front`**
+- Microsserviço de Busca
+- Front-end (Parte 1): **`/lparq-front`**
+- Front-end (Parte 2): **`/front-react`**
 
 
 ## Back End
