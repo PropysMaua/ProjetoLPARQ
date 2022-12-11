@@ -73,5 +73,7 @@ A arquitetura do back-end é baseada na seguinte interpretação de Clean Archit
 
 ![img.png](img.png)
 
+## Video Explicativo do projeto relacionado a parte 2
+[![IMAGE ALT TEXT](https://user-images.githubusercontent.com/79317347/206932013-385214e7-668f-42d7-bca3-5a489ece50f2.png)](https://youtu.be/c6n1I0AuePA "Video Title")
 
 
